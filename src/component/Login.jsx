@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { account, ID } from "../appwrite/appwriteConf";
 import { useNavigate } from "react-router-dom";
+import conf from "../conf/conf";
 
 function Login() {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ function Login() {
   });
 
   const loginUser = async (e) => {
+    console.log("ENV_CONFIG", conf);
     e.preventDefault();
     try {
       await account.createEmailSession(user.email, user.password);
